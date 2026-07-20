@@ -1,0 +1,23 @@
+# Netlify Configuration
+
+[build]
+  command = "echo 'Static site - no build needed'"
+  publish = "."
+
+# Form handling
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirect API calls to functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
