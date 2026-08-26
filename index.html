@@ -1,320 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Upload - Netlify</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .container {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-      padding: 40px;
-      max-width: 500px;
-      width: 100%;
-    }
-    h1 {
-      color: #333;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-    .subtitle {
-      color: #666;
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 14px;
-    }
-    .tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 30px;
-      border-bottom: 2px solid #eee;
-    }
-    .tab-btn {
-      flex: 1;
-      padding: 12px;
-      border: none;
-      background: none;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-      color: #999;
-      border-bottom: 3px solid transparent;
-      transition: all 0.3s ease;
-    }
-    .tab-btn.active {
-      color: #667eea;
-      border-bottom-color: #667eea;
-    }
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    label {
-      color: #333;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    input[type="file"],
-    input[type="text"],
-    textarea {
-      padding: 12px;
-      border: 2px solid #eee;
-      border-radius: 5px;
-      font-family: inherit;
-      font-size: 14px;
-      transition: border-color 0.3s ease;
-    }
-    input[type="file"]:focus,
-    input[type="text"]:focus,
-    textarea:focus {
-      outline: none;
-      border-color: #667eea;
-    }
-    input[type="file"]::file-selector-button {
-      background: #667eea;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    button[type="submit"] {
-      padding: 12px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    button[type="submit"]:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-    }
-    button[type="submit"]:active {
-      transform: translateY(0);
-    }
-    .success-message {
-      display: none;
-      padding: 15px;
-      background: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .error-message {
-      display: none;
-      padding: 15px;
-      background: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 5px;
-      aspect-ratio: 1;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .info-box {
-      background: #f0f4ff;
-      border-left: 4px solid #667eea;
-      padding: 15px;
-      border-radius: 5px;
-      font-size: 13px;
-      color: #555;
-      line-height: 1.6;
-    }
-  </style>
-</head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="RIDDHII GALA — luxury made-to-measure couture, ready-to-wear, bridal and personal styling.">
+<meta property="og:title" content="RIDDHII GALA | Luxury Fashion Boutique"><meta property="og:description" content="Made-to-measure couture, ready-to-wear and personal styling. Worldwide shipping and customisation available.">
+<title>RIDDHII GALA | Luxury Fashion Boutique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#f8f3eb;--p2:#f1e8da;--w:#fffdf8;--i:#29231f;--s:#6d655d;--m:#7b2f43;--l:#d9d0c4}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--p);color:var(--i);font:15px/1.6 "DM Sans",sans-serif}a{color:inherit}.mobile{display:none}.side{position:fixed;z-index:20;inset:0 auto 0 0;width:280px;background:#211d19;color:#f8f3eb;padding:30px 24px;overflow:auto}.brand a,.mobile-logo{font:28px "Playfair Display",serif;text-decoration:none}.brand em,.mobile-logo em,h1 em{color:#a4475d;font-style:normal}.brand p{color:#c8beb3;font-size:11px;letter-spacing:.16em;text-transform:uppercase}.search{display:flex;margin:22px 0}.search input{flex:1;min-width:0;background:#2d2823;border:1px solid #514941;color:white;padding:9px}.search button{background:#2d2823;color:white;border:1px solid #514941}.side nav a,.side nav summary,.side nav button{display:block;width:100%;background:none;border:0;color:#eee;text-align:left;text-decoration:none;padding:8px 0;cursor:pointer}.side nav a:hover,.side nav summary:hover,.side nav button:hover{color:#d7a5b0}.side details details{padding-left:13px}.side-footer{border-top:1px solid #4b443d;margin-top:24px;padding-top:16px;font-size:13px}.side-footer a{display:block;padding:6px 0}main{margin-left:280px}.hero{min-height:680px;display:grid;grid-template-columns:1fr .9fr;gap:45px;align-items:center;padding:65px 7%;background:var(--w)}.eyebrow{color:var(--m);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}.hero h1{font:clamp(52px,7vw,86px)/.95 "Playfair Display",serif;margin:8px 0}.hero h2,.section h2{font-family:"Playfair Display",serif;font-weight:500}.hero h2{font-size:34px;margin:0 0 16px}.intro{color:var(--m);font-weight:600}.muted{color:var(--s)}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border:1px solid #bcb1a5;text-decoration:none;text-transform:uppercase;letter-spacing:.1em;font-size:12px}.dark{background:var(--i);color:var(--p)}.art{min-height:470px;background:linear-gradient(145deg,#e8dfd3,#c7b9a7);border:1px solid #d6cbbd;display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden}.art:after{content:'RG';font:170px "Playfair Display",serif;color:#ffffff30;position:absolute;right:5%;bottom:-25px}.art span{background:#fffdf8df;padding:9px 13px;margin:20px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}.section{padding:70px 7%}.tint{background:var(--p2)}.section h2{font-size:48px;line-height:1.05;margin:4px 0 14px}.split,.contact{display:grid;grid-template-columns:.75fr 1.25fr;gap:60px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--w);border:1px solid var(--l);padding:22px}.card h3{font:22px "Playfair Display",serif;margin:0}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.product{background:var(--w);border:1px solid var(--l);overflow:hidden;cursor:pointer}.pic{aspect-ratio:4/5;background:#e8dfd3}.pic img{width:100%;height:100%;object-fit:cover;display:block}.fallback{height:100%;display:flex;align-items:center;justify-content:center;font:60px "Playfair Display",serif;color:#9b7a70}.pi{padding:14px}.pi strong{font:20px "Playfair Display",serif}.pi small{display:block;color:var(--s)}.profile{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;background:var(--w);border:1px solid var(--l);padding:20px}.avatar{width:68px;height:68px;border:1px solid #bdb3a8;border-radius:50%;display:grid;place-items:center;font:24px "Playfair Display",serif}.quotegrid,.faqgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.quote,.faq{background:var(--w);border:1px solid var(--l);padding:18px}.stars{color:#b79a65}.faq summary{font-weight:600;cursor:pointer}.faq p{color:var(--s)}form{display:grid;gap:12px;background:var(--p2);padding:25px;border:1px solid var(--l)}label{display:grid;gap:5px;color:var(--s);font-size:12px;text-transform:uppercase;letter-spacing:.08em}input,textarea{font:inherit;padding:12px;border:1px solid #c9c0b5;background:var(--w);color:var(--i)}textarea{min-height:130px}.disclaimer{margin-top:18px;padding:17px;background:#eee4d5;border-left:3px solid var(--m)}.wa{position:fixed;right:20px;bottom:20px;z-index:25;width:58px;height:58px;border-radius:50%;background:#20ce67;color:white;display:grid;place-items:center;text-decoration:none;font-size:28px;box-shadow:0 8px 25px #0002}.foot{text-align:center;padding:25px;border-top:1px solid var(--l);font-size:12px;color:var(--s)}dialog{border:0;max-width:720px;width:92%;padding:0}dialog::backdrop{background:#0008}.modal{padding:30px}.close{position:absolute;right:12px;top:8px;border:0;background:none;font-size:26px}.mobile-search{display:none}
+@media(max-width:900px){.mobile{display:flex;position:sticky;top:0;z-index:30;height:64px;background:#fffdf8;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid var(--l)}.mobile button{border:0;background:none;font-size:12px;text-transform:uppercase}.mobile svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7}.mobile-logo{font-size:20px}.side{top:64px;width:min(330px,88vw);height:calc(100vh - 64px);transform:translateX(-105%);transition:.2s;box-shadow:10px 0 30px #0003}.side.open{transform:none}main{margin:0}.hero{grid-template-columns:1fr;min-height:auto;padding:45px 20px}.art{min-height:350px}.section{padding:55px 20px}.split,.contact{grid-template-columns:1fr;gap:28px}.products,.cards{grid-template-columns:repeat(2,1fr)}.quotegrid,.faqgrid{grid-template-columns:1fr}.profile{grid-template-columns:auto 1fr}.profile .btn{grid-column:1/-1}.search{display:none}.mobile-search{display:block;padding:10px 16px;background:var(--w);border-bottom:1px solid var(--l)}.mobile-search form{display:flex;padding:0;border:0;background:none}.mobile-search input{flex:1;min-width:0}.mobile-search button{padding:8px 12px;background:var(--i);color:white;border:0}}
+@media(max-width:520px){.products,.cards{grid-template-columns:1fr 1fr}.section h2{font-size:38px}.hero h1{font-size:50px}.hero h2{font-size:28px}.buttons .btn{width:100%}}
+</style></head>
 <body>
-  <div class="container">
-    <h1>📱 Photo Uploader</h1>
-    <p class="subtitle">Upload photos directly from your phone to the cloud</p>
-
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('netlify')">Netlify Forms</button>
-      <button class="tab-btn" onclick="switchTab('cloudinary')">Cloudinary</button>
-      <button class="tab-btn" onclick="switchTab('guide')">Setup Guide</button>
-    </div>
-
-    <!-- Tab 1: Netlify Forms -->
-    <div id="netlify" class="tab-content active">
-      <form name="photo-upload-netlify" method="POST" enctype="multipart/form-data" netlify>
-        <div class="form-group">
-          <label for="photo-netlify">Select Photo</label>
-          <input type="file" id="photo-netlify" name="photo" accept="image/*" capture="environment" required>
-        </div>
-        <div class="form-group">
-          <label for="caption-netlify">Photo Caption (Optional)</label>
-          <textarea id="caption-netlify" name="caption" placeholder="Add a caption..." rows="3"></textarea>
-        </div>
-        <button type="submit">Upload to Netlify Forms</button>
-      </form>
-      <div class="info-box" style="margin-top: 20px;">
-        ✅ <strong>Netlify Forms:</strong> Submissions are stored in your Netlify Dashboard. No setup required. Great for form data and light file uploads.
-      </div>
-    </div>
-
-    <!-- Tab 2: Cloudinary -->
-    <div id="cloudinary" class="tab-content">
-      <form id="cloudinary-form" onsubmit="uploadToCloudinary(event)">
-        <div class="form-group">
-          <label for="photo-cloudinary">Select Photo</label>
-          <input type="file" id="photo-cloudinary" name="photo" accept="image/*" capture="environment" required>
-        </div>
-        <div class="form-group">
-          <label for="title-cloudinary">Photo Title (Optional)</label>
-          <input type="text" id="title-cloudinary" name="title" placeholder="Give your photo a title...">
-        </div>
-        <button type="submit">Upload to Cloudinary</button>
-      </form>
-      <div id="cloudinary-gallery" class="gallery"></div>
-      <div class="success-message" id="cloudinary-success">✅ Photo uploaded successfully!</div>
-      <div class="error-message" id="cloudinary-error"></div>
-      <div class="info-box" style="margin-top: 20px;">
-        ☁️ <strong>Cloudinary:</strong> Cloud storage with image optimization. Requires setup in environment variables. Best for scalable photo galleries.
-      </div>
-    </div>
-
-    <!-- Tab 3: Setup Guide -->
-    <div id="guide" class="tab-content">
-      <div class="info-box">
-        <h3 style="margin-bottom: 15px; color: #333;">📖 Setup Instructions</h3>
-        
-        <h4 style="margin-top: 15px; color: #667eea;">Option 1: Netlify Forms (Recommended for beginners)</h4>
-        <p style="margin-top: 5px;">✅ Already working! Your submissions go to your Netlify Dashboard.</p>
-        <p style="margin-top: 5px;">1. Submit a photo above</p>
-        <p style="margin-top: 5px;">2. Check: Site Settings → Forms</p>
-        <p style="margin-top: 5px;">3. View submissions there</p>
-
-        <h4 style="margin-top: 15px; color: #667eea;">Option 2: Cloudinary Setup</h4>
-        <p style="margin-top: 5px;">1. Create free account at cloudinary.com</p>
-        <p style="margin-top: 5px;">2. Get your CLOUDINARY_NAME & CLOUDINARY_PRESET</p>
-        <p style="margin-top: 5px;">3. Add to Netlify environment variables</p>
-        <p style="margin-top: 5px;">4. Deploy and test</p>
-
-        <h4 style="margin-top: 15px; color: #667eea;">Option 3: Netlify Functions</h4>
-        <p style="margin-top: 5px;">1. Deploy the serverless functions (in your repo)</p>
-        <p style="margin-top: 5px;">2. Configure S3 bucket or similar storage</p>
-        <p style="margin-top: 5px;">3. Use the API endpoints</p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function switchTab(tabName) {
-      // Hide all tabs
-      document.querySelectorAll('.tab-content').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      // Show selected tab
-      document.getElementById(tabName).classList.add('active');
-      event.target.classList.add('active');
-    }
-
-    async function uploadToCloudinary(event) {
-      event.preventDefault();
-
-      const fileInput = document.getElementById('photo-cloudinary');
-      const file = fileInput.files[0];
-
-      if (!file) {
-        showError('cloudinary', 'Please select a photo');
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_PRESET || 'demo-preset');
-
-      try {
-        const response = await fetch(
-          `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_NAME || 'demo'}/image/upload`,
-          {
-            method: 'POST',
-            body: formData
-          }
-        );
-
-        if (response.ok) {
-          const data = await response.json();
-          showSuccess('cloudinary');
-          fileInput.value = '';
-          
-          // Add to gallery
-          const gallery = document.getElementById('cloudinary-gallery');
-          const item = document.createElement('div');
-          item.className = 'gallery-item';
-          item.innerHTML = `<img src="${data.secure_url}" alt="Uploaded photo">`;
-          gallery.appendChild(item);
-        } else {
-          showError('cloudinary', 'Upload failed. Check your Cloudinary settings.');
-        }
-      } catch (error) {
-        showError('cloudinary', 'Error: ' + error.message);
-      }
-    }
-
-    function showSuccess(provider) {
-      const msg = document.getElementById(provider + '-success');
-      msg.style.display = 'block';
-      setTimeout(() => { msg.style.display = 'none'; }, 3000);
-    }
-
-    function showError(provider, errorMsg) {
-      const msg = document.getElementById(provider + '-error');
-      msg.textContent = '❌ ' + errorMsg;
-      msg.style.display = 'block';
-      setTimeout(() => { msg.style.display = 'none'; }, 5000);
-    }
-  </script>
-</body>
-</html>
+<header class="mobile"><button id="menu">MENU ☰</button><a class="mobile-logo" href="#home">RIDDHII <em>GALA</em></a><button id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="M16 16l5 5"/></svg></button></header>
+<div class="mobile-search" id="mobileSearch" hidden><form id="msearch"><input id="mi" placeholder="Search lehenga, saree, blouse…"><button>Search</button></form></div>
+<aside class="side" id="side"><div class="brand"><a href="#home">RIDDHII <em>GALA</em></a><p>Luxury Fashion Boutique</p></div><form class="search" id="searchForm"><input id="si" placeholder="Search lehenga, saree, blouse…"><button>⌕</button></form><nav><a href="#home">Home</a><a href="#about">About</a><details open id="collections"><summary>Collections</summary><div id="navCollections"></div></details><a href="#styling">Styling &amp; Personal Shopping</a><div id="navStandalone"></div><a href="#client-love">Client Love</a><a href="#instagram">Instagram Gallery</a><a href="#faqs">FAQs</a><a href="#contact">Contact</a></nav><div class="side-footer"><a href="review.html">Leave a Review</a><a href="https://instagram.com/riddhiigala" target="_blank">Instagram ↗</a><a href="https://wa.me/917977097990" target="_blank">WhatsApp ↗</a><a href="/admin">Admin</a></div></aside>
+<main>
+<section class="hero" id="home"><div><p class="eyebrow">Made for your story</p><h1>RIDDHII <em>GALA</em></h1><h2>Luxury Fashion Boutique</h2><p class="intro">Made-to-Measure Couture • Ready-to-Wear • Personal Styling</p><p class="muted">Every garment is crafted specifically for each client, with worldwide shipping and customisation available.</p><div class="buttons"><a class="btn dark" href="#collectionsSection">Explore Collection</a><a class="btn" href="#contact">Book Consultation</a></div></div><div class="art"><span>RIDDHII GALA · Made for your story</span></div></section>
+<section class="section" id="collectionsSection"><p class="eyebrow">Discover</p><h2>Featured Collections</h2><p class="muted">Browse the catalogue by section and subsection. Products are managed from the admin panel.</p><div class="products" id="products"><p class="muted">Loading catalogue…</p></div></section>
+<section class="section split" id="about"><div><p class="eyebrow">The House</p><h2>About Riddhii Gala</h2></div><div class="muted"><p>Riddhii Gala is an independent fashion designer and stylist creating made-to-measure pieces that express confidence, individuality and elegance.</p><p>We create custom occasion wear for clients in India and internationally, including Dubai and the United States, across couture, ready-to-wear, bridal-inspired designs, bridesmaid ensembles and personal styling.</p></div></section>
+<section class="section tint" id="styling"><p class="eyebrow">The Styling Lounge</p><h2>More than a garment</h2><div class="cards"><article class="card"><h3>Personal Styling</h3><p class="muted">Thoughtful looks built around your lifestyle, event and personality.</p></article><article class="card"><h3>Personal Shopping</h3><p class="muted">Guidance for clothing, accessories and finishing details.</p></article><article class="card"><h3>Eyewear Styling</h3><p class="muted">Curated frame advice informed by face shape, colour and personal style.</p></article></div></section>
+<section class="section" id="client-love"><p class="eyebrow">Client Love</p><h2>Stories from our clients</h2><div class="quotegrid" id="reviews"><p class="muted">Loading reviews…</p></div><div class="buttons"><a class="btn" href="review.html">Leave a Review on Website</a><a class="btn dark" href="https://g.page/r/CTFtSgpsM8AxEBM/review" target="_blank">Leave a Google Review</a></div></section>
+<section class="section tint" id="instagram"><p class="eyebrow">Latest from Instagram</p><h2>Follow the atelier</h2><div class="profile"><div class="avatar">RG</div><div><strong>@riddhiigala</strong><p class="muted">New designs • couture • styling • behind the scenes</p></div><a class="btn dark" href="https://instagram.com/riddhiigala" target="_blank">View Instagram ↗</a></div></section>
+<section class="section tint" id="faqs"><p class="eyebrow">Important Information</p><h2>Order Information &amp; FAQs</h2><div class="faqgrid"><details class="faq"><summary>Are shipping charges included?</summary><p>No. Shipping is charged separately at standard applicable rates in India and internationally.</p></details><details class="faq"><summary>Do you offer Cash on Delivery?</summary><p>No. Orders are accepted only against advance payment.</p></details><details class="faq"><summary>Do you offer returns or exchanges?</summary><p>No. Every piece is checked before dispatch. Pictures/details can be shared before dispatch and we can coordinate on WhatsApp.</p></details><details class="faq"><summary>Can you make custom sizes?</summary><p>Yes. Everything is made-to-measure. Standard sizing is not required.</p></details><details class="faq"><summary>What about sizes beyond Large?</summary><p>Additional charges may apply depending on the garment. We will tell you before placing the order.</p></details><details class="faq"><summary>Will my measurements be confirmed?</summary><p>Yes. We coordinate with you and can arrange a call before placing the order.</p></details><details class="faq"><summary>Can colours vary?</summary><p>Slight variation can happen due to photography, lighting and screens. Please coordinate with us before ordering if exact shade matters.</p></details><details class="faq"><summary>Do you ship internationally?</summary><p>Yes. Worldwide shipping is available and charged separately at standard applicable rates.</p></details></div><div class="disclaimer"><strong>Size &amp; order disclaimer:</strong> Please provide accurate measurements and review the details shared before payment. Any special size, fabric, construction or customization charge will be communicated and approved before the order is placed.</div></section>
+<section class="section contact" id="contact"><div><p class="eyebrow">Begin your order</p><h2>Tell us what you have in mind</h2><p class="muted">For ready-to-wear, choose a design and enquire on WhatsApp. For couture, share your occasion, date, budget and inspiration.</p><a class="btn dark" href="https://wa.me/917977097990?text=Hello%20RIDDHII%20GALA%2C%20I%20would%20like%20to%20enquire." target="_blank">Chat on WhatsApp</a><p class="muted">Reserved your slot already? <a href="https://rzp.io/rzp/bBuApK9f" target="_blank">Pay booking advance</a> securely via Razorpay.</p></div><form id="enquiry"><label>Name<input required name="name"></label><label>WhatsApp Number<input required name="whatsapp" placeholder="Country code and number"></label><label>Email <small>(optional)</small><input type="email" name="email"></label><label>What are you looking for?<textarea required name="message" placeholder="Occasion, preferred date, budget and design details"></textarea></label><button class="btn dark">Send Enquiry</button></form></section>
+<footer class="foot">© 2026 RIDDHII GALA. All Rights Reserved.</footer></main><a class="wa" href="https://wa.me/917977097990" target="_blank" aria-label="WhatsApp">⌕</a>
+<dialog id="modal"><button class="close" id="close">×</button><div class="modal" id="modalBody"></div></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const URL='https://qcujrfmuoedhvyagegz.supabase.co',KEY='sb_publishable_rw-Gqal7WPoyO5fy_cOCsA_Z6owato-',db=window.supabase.createClient(URL,KEY);let products=[];
+const esc=x=>String(x??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
+async function init(){const [p,g,c,s,r]=await Promise.all([db.from('products').select('*').order('created_at',{ascending:false}),db.from('category_groups').select('*').order('sort_order'),db.from('category_children').select('*').order('sort_order'),db.from('standalone_filters').select('*').order('sort_order'),db.from('reviews').select('name,rating,review').eq('approved',true).order('created_at',{ascending:false})]);products=p.data||[];renderNav(g.data||[],c.data||[],s.data||[]);renderProducts(products);renderReviews(r.data||[])}
+function renderNav(gs,cs,ss){const n=document.getElementById('navCollections');n.innerHTML='<summary>Collections</summary>'+gs.map(g=>{const kids=cs.filter(c=>c.group_id===g.id);return kids.length?`<details><summary>${esc(g.label)}</summary>${kids.map(c=>`<button data-k="${esc(c.id)}">${esc(c.label)}</button>`).join('')}</details>`:`<button data-k="${esc(g.id)}">${esc(g.label)}</button>`}).join('');document.getElementById('navStandalone').innerHTML=ss.map(x=>`<button data-k="${esc(x.key)}">${esc(x.label)}</button>`).join('');document.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{renderProducts(products.filter(p=>(p.filters||[]).includes(b.dataset.k)));document.getElementById('collectionsSection').scrollIntoView({behavior:'smooth'});document.getElementById('side').classList.remove('open')})}
+function renderProducts(list){const box=document.getElementById('products');if(!list.length){box.innerHTML='<p class="muted">No matching pieces yet. Please enquire on WhatsApp.</p>';return}box.innerHTML=list.map(p=>`<article class="product" data-id="${esc(p.id)}"><div class="pic">${p.image_url?`<img src="${esc(p.image_url)}" alt="${esc(p.name)}" loading="lazy">`:'<div class="fallback">RG</div>'}</div><div class="pi"><strong>${esc(p.name)}</strong><small>${esc(p.price||p.collection||'Price on request')}</small></div></article>`).join('');box.querySelectorAll('.product').forEach(x=>x.onclick=()=>openProduct(x.dataset.id))}
+function renderReviews(rs){const b=document.getElementById('reviews');b.innerHTML=rs.length?rs.slice(0,6).map(r=>`<article class="quote"><div class="stars">${'★'.repeat(r.rating||5)}${'☆'.repeat(5-(r.rating||5))}</div><p>“${esc(r.review)}”</p><strong>${esc(r.name)}</strong></article>`).join(''):'<article class="quote"><p class="muted">Approved client reviews will appear here.</p></article>'}
+function openProduct(id){const p=products.find(x=>x.id===id);if(!p)return;document.getElementById('modalBody').innerHTML=`<p class="eyebrow">${esc(p.collection||'RIDDHII GALA')}</p><h2>${esc(p.name)}</h2><p class="muted">${esc(p.description||'Made-to-measure and customisation available.')}</p><p><strong>${esc(p.price||'Price on request')}</strong></p><a class="btn dark" target="_blank" href="https://wa.me/917977097990?text=${encodeURIComponent('Hello RIDDHII GALA, I would like to enquire about '+p.name)}">Enquire on WhatsApp</a>`;document.getElementById('modal').showModal()}
+function doSearch(q){q=q.toLowerCase().trim();renderProducts(!q?products:products.filter(p=>[p.name,p.collection,p.fabric,p.silhouette,p.description,(p.filters||[]).join(' ')].join(' ').toLowerCase().includes(q)))}
+['searchForm','msearch'].forEach(id=>document.getElementById(id)?.addEventListener('submit',e=>{e.preventDefault();doSearch(e.currentTarget.querySelector('input').value);document.getElementById('collectionsSection').scrollIntoView({behavior:'smooth'})}));document.getElementById('si')?.addEventListener('input',e=>doSearch(e.target.value));document.getElementById('mi')?.addEventListener('input',e=>doSearch(e.target.value));document.getElementById('menu').onclick=()=>document.getElementById('side').classList.toggle('open');document.getElementById('searchBtn').onclick=()=>{const x=document.getElementById('mobileSearch');x.hidden=!x.hidden};document.getElementById('close').onclick=()=>document.getElementById('modal').close();document.getElementById('enquiry').onsubmit=e=>{e.preventDefault();const f=new FormData(e.currentTarget);const t=`Hello RIDDHII GALA, I would like to enquire.%0AName: ${encodeURIComponent(f.get('name'))}%0AWhatsApp: ${encodeURIComponent(f.get('whatsapp'))}%0AEmail: ${encodeURIComponent(f.get('email')||'')}%0AEnquiry: ${encodeURIComponent(f.get('message'))}`;location.href='https://wa.me/917977097990?text='+t};init().catch(()=>{renderProducts([]);renderReviews([])});
+</script></body></html>
